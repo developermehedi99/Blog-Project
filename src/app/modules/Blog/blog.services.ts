@@ -44,17 +44,6 @@ const updatedBlogIntoDB = async (
 
   const user = await User.isUserExistById(userId);
   const isBlogExist = await Blog.findById(id);
-  if (!user || user.isBlocked) {
-    throw new AppError(404, 'Invalid user. You can not update this blog');
-  }
-  const author = isBlogExist?.author;
-  if (author?.toString() !== userId) {
-    throw new AppError(403, 'You can not update this blog');
-  }
-  const result = await Blog.findByIdAndUpdate(id, payload, {
-    new: true,
-    runValidators: true,
-  }).populate('author');
 
   if (!result) {
     throw new AppError(500, 'Failed to update blog post');
