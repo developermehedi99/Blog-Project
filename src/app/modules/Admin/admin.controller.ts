@@ -12,17 +12,6 @@ const blockUser = catchAsync(async (req, res) => {
   sendResponse(res, {
     success: true,
     statusCode: 200,
-    message: 'User blocked successfully',
-  });
-});
-const deletedBlog = catchAsync(async (req, res) => {
-  const { id } = req.params;
-  const { userId, role } = req.user as JwtPayload;
-  await adminService.deleteBlog(id, userId, role);
-
-  sendResponse(res, {
-    success: true,
-    statusCode: 200,
     message: 'Blog deleted successfully',
   });
 });
