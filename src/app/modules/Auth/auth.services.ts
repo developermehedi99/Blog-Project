@@ -17,17 +17,6 @@ const registerUserInDB = async (userData: IUser): Promise<IUser> => {
 const loginUserInDB = async (payload: IUser) => {
   const user = await User.findOne({ email: payload.email }).select('+password');
 
-  if (
-    !(await User.isUserExistByEmail(payload?.email)) ||
-    !(await User.isPasswordMatched(
-      payload?.password,
-      user?.password as string,
-    )) ||
-    user?.isBlocked
-  ) {
-    throw new AppError(401, 'Invalid credentials');
-  }
-
   const jwtPayload = {
     userId: user?._id,
     role: user?.role,
