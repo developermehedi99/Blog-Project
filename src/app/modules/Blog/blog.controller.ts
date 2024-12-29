@@ -1,9 +1,13 @@
+import { JwtPayload } from 'jsonwebtoken';
 import catchAsync from '../../utils/catchAsync';
 import sendResponse from '../../utils/sentResponse';
 import { blogServices } from './blog.services';
 
 const createdBlog = catchAsync(async (req, res) => {
-  const result = await blogServices.createBlogIntoDB(req.body);
+  const author = req?.user?.userId;
+  const data = req.body;
+
+  const result = await blogServices.createBlogIntoDB({ ...data, author });
 
   sendResponse(res, {
     success: true,
@@ -14,7 +18,8 @@ const createdBlog = catchAsync(async (req, res) => {
 });
 
 const findAllBlogs = catchAsync(async (req, res) => {
-  const result = await blogServices.findAllBlogIntoDB();
+  const query = req.query;
+  const result = await blogServices.findAllBlogIntoDB(query);
 
   sendResponse(res, {
     success: true,
@@ -26,7 +31,8 @@ const findAllBlogs = catchAsync(async (req, res) => {
 
 const updatedBlog = catchAsync(async (req, res) => {
   const { id } = req.params;
-  const result = await blogServices.updatedBlogIntoDB(id, req.body);
+  const userId = req?.user?.userId;
+  const result = await blogServices.updatedBlogIntoDB(id, userId, req.body);
 
   sendResponse(res, {
     success: true,
@@ -37,7 +43,8 @@ const updatedBlog = catchAsync(async (req, res) => {
 });
 const deletedBlog = catchAsync(async (req, res) => {
   const { id } = req.params;
-  await blogServices.DeletedBlogIntoDB(id);
+  const { userId } = req.user as JwtPayload;
+  await blogServices.DeletedBlogIntoDB(id, userId);
 
   sendResponse(res, {
     success: true,
