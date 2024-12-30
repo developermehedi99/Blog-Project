@@ -52,6 +52,7 @@ This project is a **modern blogging platform** built with state-of-the-art techn
 Ensure the following variables are configured in your `.env` file:
 
 ```plaintext
+
 PORT=
 DATABASE_URL=
 BCRYPT_SALT_ROUNDS=
@@ -72,7 +73,7 @@ NODE_ENV=
 2. **Navigate to the Project Directory**:
 
    ```bash
-   cd <project-directory>
+   cd https://github.com/developermehedi99/Blog-Project.git
    ```
 
 3. **Install Dependencies**:
@@ -83,24 +84,24 @@ NODE_ENV=
 
 4. **Start the Development Server**:
    ```bash
-   npm run dev
+   npm run start:dev
    ```
 
 ---
 
 ## 🔑 Admin Login Information
 
-| **Field**    | **Value**                |
-| ------------ | ------------------------ |
-| **Email**    | [Provide admin email]    |
-| **Password** | [Provide admin password] |
+| **Field**    | **Value**       |
+| ------------ | --------------- |
+| **Email**    | admin@gmail.com |
+| **Password** | admin123        |
 
 ---
 
 ## 🔗 Links
 
-- **GitHub Repository**: [Insert GitHub link here](#)
-- **Live Site**: [Insert live site link here](#)
+- **GitHub Repository**: https://github.com/developermehedi99/Blog-Project
+- **Live Site**: https://blog-pro-3.vercel.app/
 
 ---
 
@@ -113,16 +114,3 @@ Contributions are welcome! Please:
 3. Submit a pull request with your feature or fix.
 
 ---
-
-## 📜 License
-
-This project is licensed under [Specify License Here].
-
----
-
-## 🙏 Acknowledgments
-
-Special thanks to the open-source community for their incredible tools and resources!
-
-"password":"admin123",
-"email":"admin@gmail.com"
