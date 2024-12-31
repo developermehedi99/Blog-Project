@@ -31,7 +31,6 @@ const blockUserFormAdmin = async (id: string, userId: string) => {
 const deleteBlog = async (blogId: string, userId: string, role: string) => {
   // this blog exists or not
   const isBlogExist = await Blog.findById(blogId);
-  const user = await User.isUserExistById(userId);
 
   if (!isBlogExist) {
     throw new AppError(404, 'This blog not exist');
