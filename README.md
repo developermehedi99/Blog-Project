@@ -28,8 +28,8 @@ This project is a **modern blogging platform** built with state-of-the-art techn
 
 ### Admin Controls
 
-- ❌ **Delete Users**: Full control over user management.
-- ❌ **Delete Blogs**: Maintain a clean platform.
+- ❌ **Delete Users**: Admin can delete users.
+- ❌ **Delete Blogs**: Can delete any blog.
 
 ---
 
